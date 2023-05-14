@@ -5,17 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class CrashDetector : MonoBehaviour
 {
-    [SerializeField] float invokeDelay = 5f;
+    [SerializeField] float invokeDelay = 2f;
     [SerializeField] ParticleSystem crashEffect;
     [SerializeField] GameObject ground;
     // set linear drag after player crashes
     [SerializeField] float linearDrag = 10;
+    [SerializeField] AudioClip crashSFX;
+
 
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Ground") {
             crashEffect.Play();
-            GetComponent<AudioSource>().Play();
+            GetComponent<AudioSource>().PlayOneShot(crashSFX);
             ground.GetComponent<SurfaceEffector2D>().enabled = false;
             GetComponent<Rigidbody2D>().drag = linearDrag;
             
