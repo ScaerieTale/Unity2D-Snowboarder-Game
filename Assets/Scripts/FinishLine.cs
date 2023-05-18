@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class FinishLine : MonoBehaviour
 {
     [SerializeField] float invokeDelay = 2f;
-    [SerializeField] GameObject ground;
+   [SerializeField] GameObject ground;
 
     // Allow setting the finish line particle effect inside Unity Inspector
     [SerializeField] ParticleSystem finishEffect;
@@ -16,16 +16,15 @@ public class FinishLine : MonoBehaviour
         
 // Check if entity touching trigger is player.  If yes, continue, else do nothing.
 if (other.tag == "Player"){
-          //  FindObjectOfType<PlayerController>().DisableControls();
+            FindObjectOfType<PlayerController>().DisableControls();
             GetComponent<AudioSource>().Play();
             finishEffect.Play();
-            ground.GetComponent<SurfaceEffector2D>().enabled = false;
             // Invoke the ReloadScene() method below and give
             // it a length of time set in invokeDelay above.
             Invoke("ReloadScene", invokeDelay);
-}    }
-// Method to reload the current scene from the start
-void ReloadScene() {
-    SceneManager.LoadScene(0);
+    }    }
+    // Method to reload the current scene from the start
+    void ReloadScene() {
+        SceneManager.LoadScene(0);
 }
 }
