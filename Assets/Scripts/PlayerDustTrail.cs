@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerDustTrail : MonoBehaviour
 {
     [SerializeField] ParticleSystem dustTrail;
-    float isOnGround;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
