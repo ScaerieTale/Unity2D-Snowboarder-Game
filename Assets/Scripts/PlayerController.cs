@@ -24,12 +24,13 @@ public class PlayerController : MonoBehaviour
     // what linear drag amount to apply so the player
     // skids to a stop instead of continuing out of control
     private bool hasCrashed = false;
-    [SerializeField] float drag = 10;
+    [SerializeField] float linearDrag = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        surfaceEffector2D = FindObjectOfType<SurfaceEffector2D>();
     }
 
     // Update is called once per frame
@@ -67,11 +68,14 @@ public class PlayerController : MonoBehaviour
             else
             {
                 surfaceEffector2D.speed = effectorBaseSpeed;
+;
             }
         }
     }
     public void DisableControls()
     {
         hasCrashed = true;
+        surfaceEffector2D.enabled = false;
+        rb2d.drag = linearDrag;
     }
 }
