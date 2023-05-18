@@ -12680,7 +12680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b24a4453482534e88d815a4a09b121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snowboardSFX: {fileID: 8300000, guid: 33b0e34380e91da468153fd5e48f2fcf, type: 3}
 --- !u!4 &1811765863
 Transform:
   m_ObjectHideFlags: 0
@@ -12707,8 +12706,6 @@ GameObject:
   - component: {fileID: 1843634584}
   - component: {fileID: 1843634585}
   - component: {fileID: 1843634589}
-  - component: {fileID: 1843634588}
-  - component: {fileID: 1843634587}
   - component: {fileID: 1843634586}
   - component: {fileID: 1843634591}
   - component: {fileID: 1843634590}
@@ -12770,34 +12767,6 @@ CircleCollider2D:
   m_Offset: {x: -0.83784974, y: 1.5793315}
   serializedVersion: 2
   m_Radius: 0.59058917
---- !u!114 &1843634587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1843634583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85abd5da62d406542b15f8e4c747dba7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dustTrail: {fileID: 771824080}
---- !u!114 &1843634588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1843634583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c166dcef3dd384f4f96ead00f698dc0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  torqueAmount: 10
-  baseSpeed: 15
-  boostSpeed: 30
 --- !u!50 &1843634589
 Rigidbody2D:
   serializedVersion: 4
@@ -12826,10 +12795,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843634583}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 73ca5af5a1d3eaf4c97fa17131d4e918, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 33b0e34380e91da468153fd5e48f2fcf, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.65
   m_Pitch: 1

@@ -16,7 +16,7 @@ public class FinishLine : MonoBehaviour
         
 // Check if entity touching trigger is player.  If yes, continue, else do nothing.
 if (other.tag == "Player"){
-            FindObjectOfType<PlayerController>().DisableControls();
+          //  FindObjectOfType<PlayerController>().DisableControls();
             GetComponent<AudioSource>().Play();
             finishEffect.Play();
             ground.GetComponent<SurfaceEffector2D>().enabled = false;
