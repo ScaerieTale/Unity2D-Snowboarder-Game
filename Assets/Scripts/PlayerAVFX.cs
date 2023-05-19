@@ -4,32 +4,61 @@ using UnityEngine;
 
 public class PlayerAVFX : MonoBehaviour
 {
-    [SerializeField] ParticleSystem dustTrail;
-    [SerializeField] AudioClip playerLandSFX;
-    [SerializeField] AudioClip snowboardSFX;
+    // make setting up audio sources easier :)
     private AudioSource audioPlayer;
-    private Rigidbody2D rb2d;
+
+    // particle FX to play behind snowboard
+    // while player is on ground
+    [SerializeField] ParticleSystem dustTrail;
+
+    // sound to play when player lands
+    // Disabled until I figure out why it's breaking everything else
+    // [SerializeField] AudioClip playerLandSFX;
+    
+    // amount of delay to apply to smooth out
+    // audio stop/start on rough terrain
+    [SerializeField] float invokeDelay = 0.2f;
+    
+    
 
     private void Start()
     {
         audioPlayer = GetComponent<AudioSource>();
         
     }
-    void OnCollisionEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-
+        if (other.gameObject.tag == "Ground")
+        {
+            PlayFX();
+        }
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            Invoke("StopFX", invokeDelay);
+        }
     }
 
+    // play or stop both audio snowboarding sound
+    // and player dust trail VFX
     private void PlayFX()
     {
         dustTrail.Play();
-        audioPlayer.PlayOneShot(playerLandSFX);
+       // Invoke("OneShot", 10f);
         audioPlayer.Play();
     }
     private void StopFX()
     {
         dustTrail.Stop();
-        audioPlayer.Stop();
+        audioPlayer.Pause();
     }
+        // Disabled until I can figure out what's causing it to play
+        // constantly despite setting a delay on how often it can trigger
+        /* private void OneShot()
+        {
+        audioPlayer.PlayOneShot(playerLandSFX);
+        } */
 
 }
