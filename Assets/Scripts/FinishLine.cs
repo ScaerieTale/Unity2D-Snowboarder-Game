@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class FinishLine : MonoBehaviour
 {
     [SerializeField] float invokeDelay = 2f;
-   [SerializeField] GameObject ground;
 
     // Allow setting the finish line particle effect inside Unity Inspector
     [SerializeField] ParticleSystem finishEffect;
@@ -26,5 +25,5 @@ if (other.tag == "Player"){
     // Method to reload the current scene from the start
     void ReloadScene() {
         SceneManager.LoadScene(0);
-}
+    }
 }
